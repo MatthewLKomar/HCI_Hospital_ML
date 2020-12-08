@@ -22,17 +22,16 @@ URemoteML_Client::URemoteML_Client()
 void URemoteML_Client::BeginPlay()
 {
 	Super::BeginPlay();
-
-	sock = MakeSocket(); // make our socket
-
-	sockaddr_in hint = SetUpAddress(ipAddress, port); //Set up the address values
-
-
-	ConnectToServer(sock, hint);
 	
-	FString Response = SendToServer(TEXT("Test"));
-	UE_LOG(LogTemp, Error, TEXT("Server> %s"), *Response);
-	CloseSocket(sock);
+	//sock = MakeSocket(); // make our socket
+	//
+	//sockaddr_in hint = SetUpAddress(ipAddress, port); //Set up the address values
+
+	//ConnectToServer(sock, hint);
+	
+	//FString Response = SendToServer(TEXT("Test"));
+	//UE_LOG(LogTemp, Error, TEXT("Server> %s"), *Response);
+	//CloseSocket(sock);
 }
 
 
@@ -56,6 +55,12 @@ SOCKET URemoteML_Client::MakeSocket()
 	ensure(Sock != INVALID_SOCKET);
 	return Sock;
 }
+
+void URemoteML_Client::CloseSock()
+{
+	CloseSocket(sock);
+}
+
 
 void URemoteML_Client::CloseSocket(SOCKET Sock)
 {
@@ -85,6 +90,41 @@ bool URemoteML_Client::ConnectToServer(SOCKET Sock, sockaddr_in addr)
 		return false;
 	}
 	return true;
+}
+
+void URemoteML_Client::OpenSock()
+{
+	sock = MakeSocket(); // make our socket
+
+	sockaddr_in hint = SetUpAddress(ipAddress, port); //Set up the address values
+
+	ConnectToServer(sock, hint);
+}
+
+FString URemoteML_Client::BtItF(bool val) {
+	return FString::FromInt(int(val) + 1);
+}
+
+FString URemoteML_Client::ConvertDataSetToString(FDataSet dataSet)
+{//this code will look ugly
+	//dataSet.Hospitalized = false will map to 1, true maps 2 
+	FString Messege = TEXT("");
+	Messege += BtItF(dataSet.Sex) + ',';
+	Messege += BtItF(dataSet.Hospitalized) + ',';
+	Messege += BtItF(dataSet.Intubed) + ',';
+	Messege += BtItF(dataSet.Pneuomonia) + ',';
+	Messege += FString::FromInt(dataSet.Age) + ',';
+	Messege += BtItF(dataSet.Pregnant) + ',';
+	Messege += BtItF(dataSet.Diabetes) + ',';
+	Messege += BtItF(dataSet.Epoc) + ',';
+	Messege += BtItF(dataSet.Asthma) + ',';
+	Messege += BtItF(dataSet.Immunosuppression) + ',';
+	Messege += BtItF(dataSet.Hypertension) + ',';
+	Messege += BtItF(dataSet.Cardiovascular) + ',';
+	Messege += BtItF(dataSet.Obese) + ',';
+	Messege += BtItF(dataSet.ChronicRenal) + ',';
+	Messege += BtItF(dataSet.Smokes);
+	return Messege;
 }
 
 FString URemoteML_Client::SendToServer(FString Info)
