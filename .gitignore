@@ -3,6 +3,7 @@ DerivedDataCache
 Intermediate
 Saved
 /_PythonML/.idea
+/_PythonML/data
 .vscode
 .vs
 *.VC.db
