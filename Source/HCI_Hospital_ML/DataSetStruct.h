@@ -25,23 +25,23 @@ struct FDataSet
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool Diabetes = false; //DIABETES
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Asthma = false;; //ASMA
+	bool Asthma = false; //ASMA
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool Cardiovascular = false;; //CARDIOVASCULAR
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Obese = false;; //OBESIDAD
+	bool Obese = false; //OBESIDAD
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool IntensiveCareUnit = false;; //UCI
+	bool IntensiveCareUnit = false; //UCI
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Epoc = false;; //EPOC
+	bool Epoc = false; //EPOC
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Immunosuppression = false;; //IMMUNOSUPR
+	bool Immunosuppression = false; //IMMUNOSUPR
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Hypertension = false;; //HiperTension
+	bool Hypertension = false; //HiperTension
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool ChronicRenal = false;; // 'RENAL_CRONICA'
+	bool ChronicRenal = false; // 'RENAL_CRONICA'
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Smokes = false;; //TABAQUISMO
+	bool Smokes = false; //TABAQUISMO
 };
 
 

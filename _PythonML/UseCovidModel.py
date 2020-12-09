@@ -30,6 +30,10 @@ def KNNPrediction(model, query):
     return predicted
 
 
+def sendStuff(content):
+    print(content)
+    conn.send(bytes(str(content), 'utf-8'))  # echo
+
 TCP_IP = '127.0.0.1'
 TCP_PORT = 54000
 BUFFER_SIZE = 50  # Normally 1024, but we want fast response
@@ -48,8 +52,7 @@ while 1:
     query = cleanQuery(data)
     if (validateQuery(query, 16)):
         predict = KNNPrediction(knn, query)
-        predict = bytes(str(predict[0]), 'utf-8')
-        print(predict)
-        conn.send(predict)  # echo
-
+        sendStuff(predict[0])
+    sendStuff(-1)
+    sendStuff(len(query))
 conn.close()

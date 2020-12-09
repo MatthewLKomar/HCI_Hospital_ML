@@ -109,21 +109,22 @@ FString URemoteML_Client::ConvertDataSetToString(FDataSet dataSet)
 {//this code will look ugly
 	//dataSet.Hospitalized = false will map to 1, true maps 2 
 	FString Messege = TEXT("");
-	Messege += BtItF(dataSet.Sex) + ',';
-	Messege += BtItF(dataSet.Hospitalized) + ',';
-	Messege += BtItF(dataSet.Intubed) + ',';
-	Messege += BtItF(dataSet.Pneuomonia) + ',';
-	Messege += FString::FromInt(dataSet.Age) + ',';
-	Messege += BtItF(dataSet.Pregnant) + ',';
-	Messege += BtItF(dataSet.Diabetes) + ',';
-	Messege += BtItF(dataSet.Epoc) + ',';
-	Messege += BtItF(dataSet.Asthma) + ',';
-	Messege += BtItF(dataSet.Immunosuppression) + ',';
-	Messege += BtItF(dataSet.Hypertension) + ',';
-	Messege += BtItF(dataSet.Cardiovascular) + ',';
-	Messege += BtItF(dataSet.Obese) + ',';
-	Messege += BtItF(dataSet.ChronicRenal) + ',';
-	Messege += BtItF(dataSet.Smokes);
+	Messege += BtItF(dataSet.Sex) + ','; //sexo
+	Messege += BtItF(dataSet.Hospitalized) + ','; //tipo_patiente
+	Messege += BtItF(dataSet.Intubed) + ','; //intubado
+	Messege += BtItF(dataSet.Pneuomonia) + ','; //neuomonia
+	Messege += FString::FromInt(dataSet.Age) + ','; //edad
+	Messege += BtItF(dataSet.Pregnant) + ','; //embarzo
+	Messege += BtItF(dataSet.Diabetes) + ','; //diabetes
+	Messege += BtItF(dataSet.Epoc) + ','; //epoc
+	Messege += BtItF(dataSet.Asthma) + ','; //asma
+	Messege += BtItF(dataSet.Immunosuppression) + ','; //immunosupression
+	Messege += BtItF(dataSet.Hypertension) + ','; //hipertension
+	Messege += BtItF(dataSet.Cardiovascular) + ','; //cardio vascular
+	Messege += BtItF(dataSet.Obese) + ','; //obesidad
+	Messege += BtItF(dataSet.ChronicRenal) + ','; //RENAL_CHRONICA
+	Messege += BtItF(dataSet.Smokes) + ','; //tabaquismo
+	Messege += BtItF(dataSet.IntensiveCareUnit); //UCI
 	return Messege;
 }
 
