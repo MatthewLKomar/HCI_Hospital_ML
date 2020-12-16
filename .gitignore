@@ -4,6 +4,11 @@ Intermediate
 Saved
 /_PythonML/.idea
 /_PythonML/data
+
+/HCI_HOSPITAL_ML_Assets/Video/Adobe Premiere Pro Audio Previews
+/HCI_HOSPITAL_ML_Assets/Video/Adobe Premiere Pro Auto-Save
+/HCI_HOSPITAL_ML_Assets/Video/Adobe Premiere Pro Captured Audio
+/HCI_HOSPITAL_ML_Assets/Video/Adobe Premiere Pro Video Previews
 .vscode
 .vs
 *.VC.db
@@ -14,3 +19,4 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+*.pek
