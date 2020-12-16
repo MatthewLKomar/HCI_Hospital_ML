@@ -4,6 +4,7 @@ Built for 05318 for CMU HCI
 See it in action: https://www.youtube.com/watch?v=VeK8viBRrBE&feature=youtu.be
 Data set not on github, too big. Here's google drive link instead. https://drive.google.com/drive/folders/1h6oWzvLv27ss_h0siIa_rexhqDrcOCLs?usp=sharing
 Didn't use any free open source templates (unless you count the SCIKIT library tutorials and computer generated Unreal files). 
+I used the Anaconda Python 3.9 environment and Unreal Engine 4.26.0
 
 **********If for some reason you'll use anything from here, I'd apreciate it if credit me**********
 
@@ -21,7 +22,7 @@ Numpy
 Joblib
 Socket (built in)
 
-I used the Anaconda Python 3.9 environment.
+
 
 Unreal Engine isn't running off any template, aside from the stuff normally generated for users.
 All 3D models seen were made by me. Everything was programmed by me. 
