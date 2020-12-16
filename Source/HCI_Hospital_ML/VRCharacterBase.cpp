@@ -112,24 +112,28 @@ void AVRCharacterBase::GripLeft()
 {
 	HeldObject = Grip(LeftGrabber, LeftHand);
 	ItemInHand = HeldObject;
+	LTriggerPressed = true;
 }
 
 void AVRCharacterBase::ReleaseLeft()
 {
 	HeldObject = Release(LeftGrabber, LeftHand);
 	ItemInHand = HeldObject;
+	LTriggerPressed = false;
 }
 
 void AVRCharacterBase::GripRight()
 {
 	HeldObject = Grip(RightGrabber, RightHand);
 	ItemInHand = HeldObject;
+	RTriggerPressed = true;
 }
 
 void AVRCharacterBase::ReleaseRight()
 {
 	HeldObject = Release(RightGrabber, RightHand);
 	ItemInHand = HeldObject;
+	RTriggerPressed = false;
 }
 
 AActor* AVRCharacterBase::Grip(UGrabber* Grabber, USkeletalMeshComponent* Hand)

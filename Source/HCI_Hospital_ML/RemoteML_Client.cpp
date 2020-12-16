@@ -3,6 +3,8 @@
 
 #include "RemoteML_Client.h"
 #include <string>
+#include "Engine/World.h"
+
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
@@ -128,16 +130,22 @@ FString URemoteML_Client::ConvertDataSetToString(FDataSet dataSet)
 	return Messege;
 }
 
-FString URemoteML_Client::SendToServer(FString Info)
+void URemoteML_Client::SendToServer(FString Info)
 {
-	//Send text
-	char buf[4096];
-	FString Response = TEXT("");
+	DidServerRespondYet = false;
 	string userInput = string(TCHAR_TO_UTF8(*Info));
 	int sendResult = send(sock, userInput.c_str(), userInput.size() + 1, 0);
 	ensure(sendResult != SOCKET_ERROR);
-	//Wait for a response
+	//GetWorld()->GetTimerManager().SetTimer(ServerResponseTimer, TFunction<void>() & ServerResponse, 0.0f, false);
+}
+
+
+void URemoteML_Client::ServerResponse()
+{
+	//Send text
+	char buf[4096];
 	ZeroMemory(buf, 4096);//garbage collecting
+	//Wait for a response
 	int bytesReceived = recv(sock, buf, 4096, 0);
 	if (bytesReceived > 0)
 	{
@@ -145,7 +153,21 @@ FString URemoteML_Client::SendToServer(FString Info)
 		Response = string(buf, 0, bytesReceived).c_str();
 		UE_LOG(LogTemp, Warning, TEXT("SERVER> %s"), *Response);
 	}
-	return Response;
-	//tells you function TEXT(__FUNCTION__)
-	//tells you line in code __LINE__int32;
+	DidServerRespondYet = true;
+	//InvalidateTimer();
 }
+
+void URemoteML_Client::InvalidateTimer()
+{
+	GetWorld()->GetTimerManager().ClearTimer(ServerResponseTimer);
+}
+
+
+FString URemoteML_Client::GetServerResponse()
+{
+	return Response;
+}
+
+
+
+

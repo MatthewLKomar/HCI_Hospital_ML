@@ -38,7 +38,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FString ConvertDataSetToString(FDataSet dataSet);
 	UFUNCTION(BlueprintCallable)
-	FString SendToServer(FString Info);
+		void SendToServer(FString Info);
+	UFUNCTION(BlueprintCallable)
+		void ServerResponse();
+	UFUNCTION(BlueprintCallable)
+		FString GetServerResponse();
+	void InvalidateTimer();
 public: 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		FString ipAddress = "127.0.0.1";
@@ -46,4 +51,9 @@ public:
 		int port = 54000;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FDataSet dataThing;	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool DidServerRespondYet = false;
+	FString Response = TEXT("Nothing from sever yet!");
+	FTimerHandle ServerResponseTimer;
+
 };
