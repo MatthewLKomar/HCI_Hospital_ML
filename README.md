@@ -16,10 +16,10 @@ Then I used it for prediction in UseCovidModel.py.
 UseCovidModel.py looks the different from your run of the mill SCIKIT tutorial, reason being is that I'm using a TCP-IP to recieve and transmit predicition input/output. UseCovidModel.py is both the predictor and the server.
 
 Python libs used: 
-Scikit
-Pandas
-Numpy
-Joblib
+Scikit,
+Pandas,
+Numpy,
+Joblib,
 Socket (built in)
 
 
